@@ -52,6 +52,8 @@ app.use((req, res, next) => {
   res.locals.cspNonce = crypto.randomBytes(16).toString('hex');
   next();
 });
+
+app.use(helmet());
 // app.use(
 //   helmet({
 //     crossOriginEmbedderPolicy: false,
