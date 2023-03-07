@@ -40,7 +40,6 @@ export const getCheckoutSession = catchAsync(async (req, res, next) => {
 });
 
 export const createBookingCheckout = catchAsync(async (req, res, next) => {
-  console.log('✨123');
   const { tour, user, price } = req.query;
 
   if (!tour || !user || !price) return next();

@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url';
 // const morgan = require('morgan');
 import morgan from 'morgan';
 // const helmet = require('helmet');
+import compression from 'compression';
 import helmet from 'helmet';
 // const crypto = require('crypto');
 import crypto from 'crypto';
@@ -48,12 +49,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Set security HTTP headers
 // app.use(helmet());
 
+app.use(compression());
+
 app.use((req, res, next) => {
   res.locals.cspNonce = crypto.randomBytes(16).toString('hex');
   next();
 });
 
-app.use(helmet());
+// app.use(helmet());
 // app.use(
 //   helmet({
 //     crossOriginEmbedderPolicy: false,

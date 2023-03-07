@@ -2,7 +2,6 @@
 import showAlert from './alert.js';
 
 export const login = async (password, email) => {
-  console.log('✨');
   try {
     const { data } = await axios({
       method: 'post',
@@ -24,7 +23,6 @@ export const logout = async () => {
       method: 'get',
       url: 'http://127.0.0.1:3000/api/v1/users/logout',
     });
-    console.log(data);
     if (data.status === 'success') {
       setTimeout(() => window.location.reload(true), 200);
     }

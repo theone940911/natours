@@ -74,8 +74,6 @@ userSchema.methods.correctPassword = async (candidatPassword, userPassword) =>
   await bcrypt.compare(candidatPassword, userPassword);
 
 userSchema.methods.changePasswordAfter = function (tokenIssuedAt) {
-  // console.log('✨', new Date(tokenIssuedAt * 1000));
-  // console.log('✨', this.changePasswordAt);
   if (this.changePasswordAt)
     return this.changePasswordAt > tokenIssuedAt * 1000;
 
