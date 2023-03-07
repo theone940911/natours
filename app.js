@@ -127,7 +127,7 @@ app.use('/api', limiter);
 app.use(express.json({ limit: '10kb' }));
 
 // Body parser, reading data from HTML FORM element(without API way) into req.body
-app.use(express.urlencoded({ limit: '10kb' }));
+app.use(express.urlencoded({ limit: '10kb', extended: false }));
 
 // cookie parser, reading cookie from body into req.cookie
 app.use(cookieParser());
